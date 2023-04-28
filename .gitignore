@@ -1,0 +1,24 @@
+### Symfony ###
+var/
+
+### Composer ###
+/vendor/
+/bin/
+/composer.phar
+composer.lock
+
+### Environment ###
+.env.local
+.env.local.php
+.env.*.local
+.env
+*.log
+
+### IDE ###
+.vscode/
+.idea/
+
+### OS ###
+*.DS_Store
+Thumbs.db
+

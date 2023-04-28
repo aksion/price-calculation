@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Price Calculation{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+		<h1>Price Calculation</h1>	
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-primary">Calculate Price</button>
+    {{ form_end(form) }}
+{% endblock %}

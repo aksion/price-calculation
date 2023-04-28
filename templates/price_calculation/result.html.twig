@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Final Price{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<div class="result">
+	<h1>Final Price</h1>
+    <p><span class="title">Product:</span> <span>{{ product }};</span></p>
+	<p><span class="title">Price:</span> <span>{{ productPrice }};</span></p>
+    <p><span class="title">Tax rate:</span> <span>{{ taxRate }};</span></p>
+    <p><span class="title">Total price:</span> <span>{{ totalPrice }} €.</span> </p>
+	</div>
+{% endblock %}
