@@ -4,5 +4,5 @@ controllers:
         namespace: App\Controller
     type: attribute
 price_calculation:
-    path: /price-calculation
+    path: /
     controller: App\Controller\PriceCalculationController::index

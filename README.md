@@ -8,3 +8,6 @@ DATABASE_URL=""
 # To start project in development mode
 php -S localhost:8000 -t public
 
+# Example
+[Demo](http://price-calculation.aksion.me/)
+
