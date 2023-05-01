@@ -11,3 +11,15 @@ php -S localhost:8000 -t public
 # Example
 [Demo](http://price-calculation.aksion.me/)
 
+# Input parameters
+- product (select);
+- tax number (input).
+
+# Output parameters
+- Product;
+- Price;
+- Tax rate;
+- Total price.
+
+# Formula of price calculation
+<total price> = <product price> * (1 + <tax rate>).

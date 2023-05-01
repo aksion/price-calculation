@@ -9,9 +9,17 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PriceCalculationController extends AbstractController
 {
-    /**
-     * @Route("/price-calculation", name="price_calculation")
-     */
+    const TAX_RATES = [
+        'DE' => 0.19,
+        'IT' => 0.22,
+        'GR' => 0.24,
+    ];
+
+    const PRODUCT_PRICES = [
+        'headphones' => 100,
+        'phone_case' => 20,
+    ];
+	
     public function index(Request $request)
     {
         $form = $this->createForm(PriceCalculationType::class);
@@ -22,30 +30,9 @@ class PriceCalculationController extends AbstractController
             $product = $form->getData()['product'];
             $taxNumber = $form->getData()['taxNumber'];
             $countryCode = substr($taxNumber, 0, 2);
-            $taxRate = 0;
-			
-            switch ($countryCode) {
-                case 'DE':
-                    $taxRate = 0.19;
-                    break;
-                case 'IT':
-                    $taxRate = 0.22;
-                    break;
-                case 'GR':
-                    $taxRate = 0.24;
-                    break;
-            }
-
-            $productPrice = 0;
-
-            switch ($product) {
-                case 'headphones':
-                    $productPrice = 100;
-                    break;
-                case 'phone_case':
-                    $productPrice = 20;
-                    break;
-            }
+            
+            $taxRate = $this->getTaxRate($countryCode);
+            $productPrice = $this->getProductPrice($product);
 
             $taxAmount = $productPrice * $taxRate;
             $totalPrice = $productPrice + $taxAmount;
@@ -63,6 +50,16 @@ class PriceCalculationController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+	
+    private function getTaxRate($countryCode)
+    {
+        return self::TAX_RATES[$countryCode] ?? 0;
+    }
+
+    private function getProductPrice($product)
+    {
+        return self::PRODUCT_PRICES[$product] ?? 0;
+    }	
 }
 
 ?>
