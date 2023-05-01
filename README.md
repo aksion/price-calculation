@@ -22,4 +22,4 @@ php -S localhost:8000 -t public
 - Total price.
 
 # Formula of price calculation
-<total price> = <product price> * (1 + <tax rate>).
+totalPrice = productPrice * (1 + taxRate).
