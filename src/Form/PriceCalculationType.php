@@ -20,7 +20,7 @@ class PriceCalculationType extends AbstractType
         'DE' => 'DEXXXXXXXXX - for residents of Germany',
         'IT' => 'ITXXXXXXXXXXX - for residents of Italy',
         'GR' => 'GRXXXXXXXXX - for residents of Greece',
-        'default' => 'YY + several X numbers, first two characters YY are the country code',
+        'default' => 'YY + several X numbers, first two characters YY (DE/IT/GR) are the country code',
     ];
 	
     public function buildForm(FormBuilderInterface $builder, array $options)
